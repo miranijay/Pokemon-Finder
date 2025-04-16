@@ -1,0 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: black;
+}
+
+body {
+    font-family:'Courier New', Courier, monospace;
+    background-color: azure;
+    color: #222222;
+}
