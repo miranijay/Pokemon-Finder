@@ -117,47 +117,6 @@ input[type="text"] {
     position: relative;
 }
 
-.pokemon-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 40%;
-    transform: rotate(180deg);
-    background-color: #ebfbf1;
-    border-radius: 50% 50% 100% 0% / 99% 100% 0% 1%;
-    z-index: 0;
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    -webkit-border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    -moz-border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    -ms-border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    -o-border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.pokemon-card:hover::before {
-    -webkit-border-radius: 50% 50% 100% 0% / 99% 100% 0% 1%;
-    -moz-border-radius: 50% 50% 100% 0% / 99% 100% 0% 1%;
-    -ms-border-radius: 50% 50% 100% 0% / 99% 100% 0% 1%;
-    -o-border-radius: 50% 50% 100% 0% / 99% 100% 0% 1%;
-    transition: all 0.3s;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    -ms-transition: all 0.3s;
-    -o-transition: all 0.3s;
-}
-
-.pokemon-card:hover {
-    transform: scale(1.03);
-    transition: all 0.3s;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    -ms-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
-}
-
 figure {
     display: flex;
     justify-content: center;
