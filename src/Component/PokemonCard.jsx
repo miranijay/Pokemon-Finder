@@ -52,6 +52,11 @@ const PokemonCard = () => {
         return (currPokemon.name.toLowerCase().includes(search.toLocaleLowerCase()));
     })
 
+    // const searchType = pokemon.filter((currPokemon) => {
+    //     return (currPokemon.types[0].type.name.toLowerCase().includes(search.toLocaleLowerCase()));
+    // })
+    
+
     return (
         <section className='container'>
             <header>
