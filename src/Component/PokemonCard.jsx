@@ -25,7 +25,7 @@ const PokemonCard = () => {
 
             const detailedResponseData = await Promise.all(pokemonData);
 
-            if (detailedResponseData && detailedResponseData.length) {
+            if (detailedResponseData && detailedResponseData?.length) {
                 setPokemon(detailedResponseData);
                 setLoading(false);
             }
@@ -118,7 +118,7 @@ const PokemonCard = () => {
                                                         </p>
                                                         <p className="pokemon-info">
                                                             <span>
-                                                                {currPokemon?.abilities?.[0].ability.name}
+                                                                {currPokemon?.abilities?.[0].ability?.name}
                                                             </span> <br /> Abilities
                                                         </p>
                                                     </div>
