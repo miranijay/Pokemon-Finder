@@ -193,6 +193,7 @@ figure {
     font-weight: bold;
     letter-spacing: 0.1rem;
     text-transform: capitalize;
+    outline: none;
 }
 
 option {
