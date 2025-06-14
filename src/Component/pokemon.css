@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -67,9 +69,14 @@ header {
     display: flex;
     justify-content: center;
     margin-bottom: 3.2rem;
-    gap: 10px;
+    gap: 50px;
 }
-.filter-icon{
+
+.filter-icon {
+    cursor: pointer;
+}
+
+.select-filter {
     cursor: pointer;
 }
 
@@ -154,7 +161,6 @@ figure {
     text-align: center;
 }
 
-/* ///////////////////////////////////////// */
 .short-container {
     width: 65rem;
 
@@ -169,5 +175,50 @@ figure {
     & button {
         padding: 0.6rem 0;
         cursor: pointer;
+    }
+}
+
+.filter-section{
+    display: flex;
+    align-items: center;
+}
+
+.select-section {
+    background: linear-gradient(71deg, #703381, #775a89, #a29aa5);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 0.6rem 2.4rem;
+    border-radius: 5rem;
+    font-family: "urbanist";
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    text-transform: capitalize;
+}
+
+option {
+    background: linear-gradient(71deg, #080509, #1a171c, #080509);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 0.6rem 2.4rem;
+    border-radius: 5rem;
+}
+
+@media screen and (max-width: 980px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .card-section {
+        display: flex;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .card-section {
+        display: flex;
+        margin: auto;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
     }
 }

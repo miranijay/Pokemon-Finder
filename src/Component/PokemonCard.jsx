@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import './pokemon.css';
 import { IoFilterCircle } from "react-icons/io5";
+import { Popover } from 'react-tiny-popover';
 
 const PokemonCard = () => {
     const [pokemon, setPokemon] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const [search, setSearch] = useState('');
-    const [isOpen, setIsOpen] = useState(false);
+    const [filter, setFilter] = useState("all");
 
     const API = "https://pokeapi.co/api/v2/pokemon?limit=311";
 
@@ -41,14 +42,22 @@ const PokemonCard = () => {
         fetchPokemon();
     }, [])
 
+    // Handle Select Tag functionality
+    const handleSelectChange = (e) => {
+        e.preventDefault();
+        setFilter(e.target.value);
+    }
+
     // Search Functionality
     const searchData = pokemon?.filter((currPokemon) => {
         return (currPokemon?.name?.toLowerCase().includes(search.toLocaleLowerCase()));
     })
 
-    // const searchType = pokemon.filter((currPokemon) => {
-    //     return (currPokemon.types[0].type.name.toLowerCase().includes(search.toLocaleLowerCase()));
-    // })
+    const searchType = pokemon?.filter((currPokemon) => {
+        return (currPokemon.types[0].type.name.toLowerCase().includes(search.toLocaleLowerCase()));
+    })
+
+
 
     return (
         <>
@@ -64,20 +73,30 @@ const PokemonCard = () => {
                             <div className='pokemon-search'>
                                 <input
                                     type="text"
+                                    name='text'
                                     placeholder='search Pokemon'
                                     value={search}
                                     onChange={(e) => setSearch(e.target.value)}
                                 />
-                                <IoFilterCircle
-                                    size={45}
-                                    className='filter-icon'
-                                    onClick={() => setIsOpen(!isOpen)}
-                                />
-                                {
 
-                                }
+                                <div className='filter-section'>
+                                    <select
+                                        className='select-section'
+                                        value={filter}
+                                        onChange={handleSelectChange}
+                                    >
+                                        <option value="all">All</option>
+                                        <option value="grass">Grass</option>
+                                        <option value="electric">Electric</option>
+                                        <option value="ghost">Ghost</option>
+                                        <option value="normal">Normal</option>
+                                        <option value="stone">Stone</option>
+                                        <option value="water">Water</option>
+                                    </select>
+                                </div>
+
                             </div>
-                            <div>
+                            <div className='card-section'>
                                 <ul className="cards">
                                     {
                                         searchData.map((currPokemon) => {
@@ -114,11 +133,11 @@ const PokemonCard = () => {
                                                             <span>{currPokemon?.base_experience}</span> <br /> Experience
                                                         </p>
                                                         <p className="pokemon-info">
-                                                            <span>{currPokemon?.stats?.[1].base_stat}</span> <br /> Attack
+                                                            <span>{currPokemon?.stats?.[1]?.base_stat}</span> <br /> Attack
                                                         </p>
                                                         <p className="pokemon-info">
                                                             <span>
-                                                                {currPokemon?.abilities?.[0].ability?.name}
+                                                                {currPokemon?.abilities?.[0]?.ability?.name}
                                                             </span> <br /> Abilities
                                                         </p>
                                                     </div>
