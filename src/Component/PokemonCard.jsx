@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './pokemon.css';
+import Loader from './Loader';
 
 const PokemonCard = () => {
     const [pokemon, setPokemon] = useState(null);
@@ -68,7 +69,7 @@ const PokemonCard = () => {
                 error
                     ? <h1>Error is occurred...</h1>
                     : loading
-                        ? <h1>Loading...</h1>
+                        ? <Loader />
                         : <section className='container'>
                             <header>
                                 <h1 style={{ fontSize: "4.4rem" }}>Lets Catch Pokémon</h1>
