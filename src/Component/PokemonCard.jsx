@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './pokemon.css';
-import { IoFilterCircle } from "react-icons/io5";
-import { Popover } from 'react-tiny-popover';
 
 const PokemonCard = () => {
     const [pokemon, setPokemon] = useState(null);
@@ -49,14 +47,18 @@ const PokemonCard = () => {
     }
 
     // Search Functionality
-    const searchData = pokemon?.filter((currPokemon) => {
-        return (currPokemon?.name?.toLowerCase().includes(search.toLocaleLowerCase()));
-    })
+    const searchData = (currPokemon) => {
+        return (currPokemon?.name?.toLowerCase().includes(search?.toLocaleLowerCase()));
+    }
 
-    const searchType = pokemon?.filter((currPokemon) => {
-        return (currPokemon.types[0].type.name.toLowerCase().includes(search.toLocaleLowerCase()));
-    })
+    const filterType = (currPokemon) => {
+        if(filter === "all") return currPokemon;
+        return currPokemon.types[0].type.name === filter;
+    }
 
+    const filterPokemon = pokemon?.filter((currPokemon) => {
+        return searchData(currPokemon) && filterType(currPokemon);
+    })
 
 
     return (
@@ -87,11 +89,17 @@ const PokemonCard = () => {
                                     >
                                         <option value="all">All</option>
                                         <option value="grass">Grass</option>
+                                        <option value="fire">Fire</option>
                                         <option value="electric">Electric</option>
                                         <option value="ghost">Ghost</option>
                                         <option value="normal">Normal</option>
-                                        <option value="stone">Stone</option>
+                                        <option value="bug">Bug</option>
                                         <option value="water">Water</option>
+                                        <option value="poison">Poison</option>
+                                        <option value="fighting">Fighting</option>
+                                        <option value="psychic">Psychic</option>
+                                        <option value="dragon">Dragon</option>
+                                        <option value="dark">Dark</option>
                                     </select>
                                 </div>
 
@@ -99,7 +107,7 @@ const PokemonCard = () => {
                             <div className='card-section'>
                                 <ul className="cards">
                                     {
-                                        searchData.map((currPokemon) => {
+                                        filterPokemon.map((currPokemon) => {
                                             return (
                                                 <li key={currPokemon?.id} className='pokemon-card'>
                                                     <figure>
