@@ -54,7 +54,7 @@ const PokemonCard = () => {
     // Filter functionality
     const filterType = (currPokemon) => {
         if(filter === "all") return currPokemon;
-        return currPokemon.types[0].type.name === filter;
+        return currPokemon?.types?.[0]?.type?.name === filter;
     }
 
     const filterPokemon = pokemon?.filter((currPokemon) => {
@@ -122,7 +122,7 @@ const PokemonCard = () => {
                                                     <div className="pokemon-info pokemon-highlight">
                                                         <p>
                                                             {
-                                                                currPokemon?.types?.map((currtype) => (currtype.type.name)).join(", ")
+                                                                currPokemon?.types?.map((currtype) => (currtype?.type?.name)).join(", ")
                                                             }
                                                         </p>
                                                     </div>
