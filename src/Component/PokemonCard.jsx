@@ -51,6 +51,7 @@ const PokemonCard = () => {
         return (currPokemon?.name?.toLowerCase().includes(search?.toLocaleLowerCase()));
     }
 
+    // Filter functionality
     const filterType = (currPokemon) => {
         if(filter === "all") return currPokemon;
         return currPokemon.types[0].type.name === filter;
