@@ -58,6 +58,7 @@ const PokemonCard = () => {
         return currPokemon?.types?.[0]?.type?.name === filter;
     }
 
+    // Filtering Pokemon 
     const filterPokemon = pokemon?.filter((currPokemon) => {
         return searchData(currPokemon) && filterType(currPokemon);
     })
